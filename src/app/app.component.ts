@@ -22,25 +22,12 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
-    // this.signupForm.setValue({
-    //   userData: {
-    //     username: suggestedName,
-    //     email: ''
-    //   },
-    //   secret: 'pet',
-    //   questionAnswer: '',
-    //   gender: 'male'
-    // });
     this.signupForm.form.patchValue({
       userData: {
         username: suggestedName
       }
     });
   }
-
-  // onSubmit(form: NgForm){
-  //   console.log(form)
-  // }
 
   onSubmit(){
     this.submitted = true;
@@ -49,5 +36,7 @@ export class AppComponent {
     this.user.secreteQuestion = this.signupForm.value.secret;
     this.user.answer = this.signupForm.value.questionAnswer;
     this.user.gender = this.signupForm.value.gender;
+
+    this.signupForm.reset();
   }
 }
